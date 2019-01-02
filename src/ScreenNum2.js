@@ -18,12 +18,31 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class ScreenNum1 extends Component<Props> {
+
+  static get options() {
+    return {
+      statusBar: {
+        visible: false,
+        drawBehind: true,
+        backgroundColor: 'transparent'
+      },
+      layout: {
+        orientation: ['portrait'],
+        backgroundColor: '#f5fcff'
+      },
+      _animations: {
+        showModal: {
+          waitForRender: true
+        }
+      }
+    };
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.welcome}> Welcome to Screen #2 </Text>
       </View>
     );
   }
