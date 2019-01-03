@@ -52,7 +52,10 @@ export default class App extends Component {
   }
 
   setMovies = data => {
-    this.setState({ movies: data.results, loading: false });
+    const movies = data.results.sort(
+      (a, b) => new Date(b.release_date) - new Date(a.release_date)
+    );
+    this.setState({ movies, loading: false });
   };
 
   componentDidMount() {
